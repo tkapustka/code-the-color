@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+// import Color from "./Color";
+
 
 
 export default function App() {
@@ -17,10 +19,11 @@ export default function App() {
 
   return (
     <div className="App" style={{ backgroundColor: colors[colorValue].color }}>
-      <h1>Selected color: {colors[colorValue].title}</h1>
+      <h1>HEX code goes here{colors[colorValue].title}</h1>
       <button className="btn" onClick={handleClick}>
         Click to change color
       </button>
     </div>
   );
 }
+
