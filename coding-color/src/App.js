@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from 'axios'
+import Counter from "./counter";
 
 
 const fetchColorHex = async () => {
@@ -42,6 +43,7 @@ export default function App() {
     >
       <div className="title">{hex}</div>
       <p className="click-color">Click for a color</p>
+      <Counter />
     </div>
   );
 }
