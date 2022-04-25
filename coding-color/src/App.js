@@ -9,27 +9,39 @@ const fetchColorHex = async () => {
 };
 
 export default function App() {
-  const colors = [
-    { title: "Red", color: "#de1212" },
-    { title: "Blue", color: "#122dde" },
-    { title: "Green", color: "#32a852" },
-    { title: "Yellow", color: "#d7de12" }
-  ];
+  const [colorHex, setColorHex] = useState("#000000");
+  const [isFetchingColorHex, setIsFetchingColorHex] = useState(false);
 
-  const [colorValue, setColorValue] = useState(0);
+  const triggerNewColor = async () => {
+    if (isFetchingColorHex) {
+      return;
+    }
+    setIsFetchingColorHex(true);
+    const newColorHex = await fetchColorHex();
+    setColorHex(newColorHex);
+    setIsFetchingColorHex(false);
+  };
 
-  const handleClick = () =>
-    setColorValue(colorValue + 1 < colors.length ? colorValue + 1 : 0);
+  let hex;
+  if (isFetchingColorHex) {
+
+  } else {
+    hex = (
+      <h1>
+        <span className="light">{colorHex}</span>
+      </h1>
+    );
+  }
 
   return (
-  
-    <div className="App" style={{ backgroundColor: colors[colorValue].color }}>
-      <Color />
-      <h1>HEX code goes here{colors[colorValue].title}</h1>
-      <button className="btn" onClick={handleClick}>
-        Click to change color
-      </button>
+
+    <div
+      className="App"
+      style={{ backgroundColor: colorHex }}
+      onClick={triggerNewColor}
+    >
+      <div className="title">{hex}</div>
+      <p className="click-color">Click for a color</p>
     </div>
   );
 }
-

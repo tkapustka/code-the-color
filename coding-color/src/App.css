@@ -11,12 +11,29 @@ body,
 }
 
 .App {
-  padding-top: 30px;
   font-family: sans-serif;
   text-align: center;
 }
 
-.btn {
-  padding: 10px 20px;
-  font-weight: bold;
+.App .title {
+  padding-top: 50%;
 }
+
+.App .title h1 span {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.App .title .light {
+  color: white;
+  font-size: 2em;
+  font-weight: 200;
+}
+
+.click-color {
+  font-size: 1em;
+  color: white;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
