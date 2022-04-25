@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-// import Color from "./Color";
+import axios from 'axios'
 
 
+const fetchColorHex = async () => {
+  const res = await axios.get("https://x-colors.herokuapp.com/api/random");
+  return res.data.hex;
+};
 
 export default function App() {
   const colors = [
@@ -18,7 +22,9 @@ export default function App() {
     setColorValue(colorValue + 1 < colors.length ? colorValue + 1 : 0);
 
   return (
+  
     <div className="App" style={{ backgroundColor: colors[colorValue].color }}>
+      <Color />
       <h1>HEX code goes here{colors[colorValue].title}</h1>
       <button className="btn" onClick={handleClick}>
         Click to change color
