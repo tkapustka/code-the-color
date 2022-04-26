@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from 'axios'
 import copy from "copy-to-clipboard";
+import ColorQuote from "./components/Map";
+import quotes from "./quotes";
 
 
 
@@ -10,8 +12,13 @@ import copy from "copy-to-clipboard";
 
 const fetchColorHex = async () => {
   const res = await axios.get("https://x-colors.herokuapp.com/api/random");
+  console.log(res.data)
+  const mapRgb = res.data.rgb
+
   return res.data.hex;
+
 };
+
 
 // console log api call
 // map display second color value from api call?
@@ -29,6 +36,8 @@ export default function App() {
     setColorHex(newColorHex);
     setIsFetchingColorHex(false);
   };
+
+
 
   // Copy Button
   const onCopyButtonClick = (event) => {
@@ -76,6 +85,11 @@ export default function App() {
       <div className="title">{hex}</div>
       <button className="copy-button" onClick={onCopyButtonClick}>Copy</button>
       <p className="click-color">Click for a color</p>
+      <ul>
+        {quotes.map((quotes) => (
+          <ColorQuote key={quotes.words} />
+        ))}
+      </ul>
     </div>
   );
 
