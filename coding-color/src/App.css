@@ -37,3 +37,10 @@ body,
   text-transform: uppercase;
 }
 
+.website {
+  padding-top: 5px;
+  font-size: 1em;
+  color: white;
+  font-weight: 100;
+}
+

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import "./App.css";
 import axios from 'axios'
-import Counter from "./counter";
+import CopyToClipboard from "react-copy-to-clipboard";
+
 
 
 const fetchColorHex = async () => {
@@ -41,9 +42,9 @@ export default function App() {
       style={{ backgroundColor: colorHex }}
       onClick={triggerNewColor}
     >
+      <p className="website">CodeTheColor.Com</p>
       <div className="title">{hex}</div>
       <p className="click-color">Click for a color</p>
-      <Counter />
     </div>
   );
 }
