@@ -7,24 +7,20 @@ import quotes from "./quotes";
 
 
 
-
-// useEffect for axios call - committed button code 
-
+// API call Color
 const fetchColorHex = async () => {
   const res = await axios.get("https://x-colors.herokuapp.com/api/random");
   console.log(res.data)
-  const mapRgb = res.data.rgb
+  // const mapRgb = res.data.rgb
 
   return res.data.hex;
 
 };
 
 
-// console log api call
-// map display second color value from api call?
 
 export default function App() {
-  const [colorHex, setColorHex] = useState();
+  const [colorHex, setColorHex] = useState("#000000");
   const [isFetchingColorHex, setIsFetchingColorHex] = useState(false);
 
   const triggerNewColor = async () => {
