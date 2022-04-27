@@ -20,7 +20,7 @@ const fetchColorHex = async () => {
 
 
 export default function App() {
-  const [colorHex, setColorHex] = useState("#000000");
+  const [colorHex, setColorHex] = useState("#00008B");
   const [isFetchingColorHex, setIsFetchingColorHex] = useState(false);
 
   const triggerNewColor = async () => {
