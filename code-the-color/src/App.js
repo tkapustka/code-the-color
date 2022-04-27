@@ -3,7 +3,7 @@ import "./App.css";
 import axios from 'axios'
 import copy from "copy-to-clipboard";
 import ColorQuote from "./components/Map";
-import quotes from "./quotes";
+
 
 
 
